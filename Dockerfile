@@ -10,7 +10,8 @@ VOLUME /var/lib/docker
 ENV JENKINS_HOME /var/jenkins
 # set our user home to the same location
 ENV HOME /var/jenkins
-
+# set default docker version
+ENV DOCKER_VERSION latest
 # set our wrapper
 ENTRYPOINT ["/usr/local/bin/docker-wrapper"]
 # default command to launch jenkins
@@ -21,7 +22,7 @@ ADD docker-wrapper.sh /usr/local/bin/docker-wrapper
 
 # now we install docker in docker - thanks to https://github.com/jpetazzo/dind
 # We install newest docker into our docker in docker container
-ADD https://get.docker.io/builds/Linux/x86_64/docker-latest /usr/local/bin/docker
+ADD https://get.docker.io/builds/Linux/x86_64/docker-$DOCKER_VERSION /usr/local/bin/docker
 RUN chmod +x /usr/local/bin/docker
 
 # for installing docker related files first
