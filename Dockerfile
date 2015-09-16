@@ -11,7 +11,7 @@ ENV JENKINS_HOME /var/jenkins
 # set our user home to the same location
 ENV HOME /var/jenkins
 # set default docker version
-ENV DOCKER_VERSION latest
+ENV DOCKER_VERSION 1.7.1
 # set our wrapper
 ENTRYPOINT ["/usr/local/bin/docker-wrapper"]
 # default command to launch jenkins
